@@ -1,0 +1,14 @@
+## joint_names
+humanoid_urdf: ['Yaw_Butt_Universal_R']
+## joint trajectory controller
+joint_state_controller:
+  type: humanoid_urdf/joint_state_controller
+  joints:
+    - Yaw_Butt_Universal_R
+
+  constraints:
+    Yaw_Butt_Universal_R : {type: effort_controllers/JointPositionController, joint: Yaw_Butt_Universal_R, pid: {p: 1.0, i: 0.0, d: 0.0}}
+
+
+  publish_rate:  25
+
