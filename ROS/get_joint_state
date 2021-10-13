@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+import rospy
+from std_msgs.msg import Float64
+import math
+
+def joint_state():
+    rospy.init_node('joint_state', anonymous=True)
+    pub1 = rospy.Publisher('/humanoid_urdf/Yaw_Butt_Universal_R_position_controller/command', Float64, queue_size=10)
+ 
+    rate = rospy.Rate(10) # 10hz
+    while not rospy.is_shutdown():
+        hello_str = "hello world %s" % rospy.get_time()
+       #rospy.loginfo(position)
+        pub1.publish()
+ 
+        rate.sleep()
+
+if __name__ == '__main__':
+    try:
+        joint_state()
+    except rospy.ROSInterruptException:
+        pass
